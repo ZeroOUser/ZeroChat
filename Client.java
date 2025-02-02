@@ -39,7 +39,6 @@ public class Client {
         @Override
         public void keyPressed(KeyEvent e) {
             if(e.getKeyCode() == KeyEvent.VK_ENTER){
-                System.out.println("hello");
                 sendMsg();
             }
         }
@@ -138,7 +137,7 @@ public class Client {
     // network
     private void setUpNetwork() {
         try {
-            serverAddress = new InetSocketAddress("localhost", 5000);
+            serverAddress = new InetSocketAddress("ec2-16-171-139-33.eu-north-1.compute.amazonaws.com", 5000);
             channel = SocketChannel.open(serverAddress);
             reader = new BufferedReader(Channels.newReader(channel, UTF_8));
             writer = new PrintWriter(Channels.newWriter(channel, UTF_8));
